@@ -13,7 +13,7 @@ import { Camera, Permissions } from 'expo';
         this.setState({ hasCameraPermission: status === 'granted' });
     }
 
-    render() {
+    render() { 
         const { hasCameraPermission } = this.state;
         if (hasCameraPermission === null) {
             return <View />;
