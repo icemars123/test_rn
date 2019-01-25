@@ -1,18 +1,27 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>My Awesome application</title>
-  </head>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#hide").click(function(){
+    $("p").hide();
+  });
+  $("#show").click(function(){
+    $("p").show();
+  });
+});
+$(document).ready(function(){
+	document.getElementById("demo").innerHTML = Date();
+});
 
-  <body>
-    <h1>Hello World</h1>
+</script>
+</head>
+<body>
 
-    <h3>Welcome to the Awesome application</h3>
 
-    <my-app></my-app>
-
-    <script src='app.bundle.js'></script>
-
-  </body>
+<button id="hide">Hide</button>
+<button id="show">Show</button>
+<p id="demo"></p>
+</body>
 </html>

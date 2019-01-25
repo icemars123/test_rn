@@ -13,23 +13,39 @@
     "preset": "jest-expo"
   },
   "dependencies": {
+    "babel-preset-expo": "^4.0.0",
     "eslint": "^5.12.1",
     "eslint-plugin-react-native": "^3.6.0",
     "expo": "^30.0.1",
     "expo-camera": "^2.0.0",
     "opts": "^1.2.6",
-    "react": "^16.3.1",
+    "react": "^16.7.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-30.0.0.tar.gz",
+    "react-native-web": "^0.10.0-alpha.3",
     "react-navigation": "^2.18.0",
     "react-navigation-header-buttons": "^2.1.0",
     "tracking": "^1.1.3"
   },
   "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^23.6.0",
+    "babel-loader": "^8.0.5",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "flow-bin": "^0.91.0",
     "gulp-html-replace": "^1.6.2",
     "gulp-inline-source": "^4.0.0",
     "html-webpack-inline-source-plugin": "0.0.10",
     "html-webpack-plugin": "^3.2.0",
-    "jest-expo": "^30.0.0",
+    "jest": "^23.6.0",
+    "jest-expo": "^32.0.0",
+    "react-native-scripts": "^2.0.1",
+    "react-test-renderer": "^16.7.0",
+    "regenerator-runtime": "^0.13.1",
     "webpack": "^4.29.0"
+  },
+  "resolutions": {
+    "babel-core": "^7.0.0-bridge"
   }
 }

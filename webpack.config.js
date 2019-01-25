@@ -8,7 +8,7 @@ module.exports = {
 
     entry: "./screens/links.js", //relative to root of the application
     output: {
-        filename: "./../dist/app.bundle.js" //relative to root of the application
+        filename: "./dist/app.bundle.js" //relative to root of the application
     },
     plugins: [
         new HtmlWebpackPlugin({

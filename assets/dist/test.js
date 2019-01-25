@@ -1,0 +1,18 @@
+document.write('<!DOCTYPE html>\n');
+document.write('<html>\n');
+document.write('  <head>\n');
+document.write('    <meta charset=\"UTF-8\">\n');
+document.write('    <title>My Awesome application</title>\n');
+document.write('  </head>\n');
+document.write('\n');
+document.write('  <body>\n');
+document.write('    <h1>Hello World</h1>\n');
+document.write('\n');
+document.write('    <h3>Welcome to the Awesome application</h3>\n');
+document.write('\n');
+document.write('    <my-app></my-app>\n');
+document.write('\n');
+document.write('    <script src=\'app.bundle.js\'></script>\n');
+document.write('\n');
+document.write('  </body>\n');
+document.write('</html>');
