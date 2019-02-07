@@ -18,7 +18,8 @@ import Contact from "../screens/Contact";
 import Create from "../screens/Create";
 import Search from "../screens/Search";
 import Link from "../screens/Link";
-
+import Profile from "../screens/Profile";
+import Login from "../screens/Login";
 
 const Tabs = createBottomTabNavigator(
     {
@@ -26,7 +27,7 @@ const Tabs = createBottomTabNavigator(
         Search: Search,
         Create: Create,
         Link: Link,
-        Contact: Contact
+        Contact: Contact 
     },
     {
         navigationOptions: ({ navigation }) => ({
@@ -64,5 +65,8 @@ const Tabs = createBottomTabNavigator(
         }
     }
 )
+
+
+
 
 export default Tabs;

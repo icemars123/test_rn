@@ -21,6 +21,7 @@ import MainTabNavigator1 from './MainTabNavigator1';
 import MainTabNavigator from './MainTabNavigator';
 import MyHome from "./../screens/Home";
 import MyCamera from '../screens/Camera';
+import Profile from "../screens/Profile";
 
 
 class MyHomeScreen extends React.Component {
@@ -121,6 +122,7 @@ const MenuImage = ({ navigation }) => {
 
 const AppNavigator = createStackNavigator(
     {
+        // Profile: { screen: Profile },
         DrawerNavigator:
         {
             screen: DrawerNavigator

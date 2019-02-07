@@ -3,7 +3,7 @@ import { AppRegistry, Platform, StatusBar, StyleSheet, View, Text, ScrollView } 
 import { AppLoading, Asset, Font, Icon, Camera } from "expo";
 import MyCamera from './../screens/Camera';
 
-export default class Home extends React.Component {
+export default class Create extends React.Component {
     // static navigationOptions = ({ navigation }) => {
     //     const params = navigation.state.params || {};
 

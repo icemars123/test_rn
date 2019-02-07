@@ -16,7 +16,7 @@ import { AppLoading, Asset, Font, Icon } from "expo";
 const INDEX_FILE_PATH = `./../assets/dist/test.html`;
 const INDEX_FILE_ASSET_URI = Asset.fromModule(require(INDEX_FILE_PATH)).uri;
 
-export default class Home extends React.Component {
+export default class Link extends React.Component {
     render() {
         return (
             // <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', alignContent: 'center' }}>
