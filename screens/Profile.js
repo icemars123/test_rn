@@ -11,6 +11,7 @@ import {
     Button,
 } from "react-native";
 import { AppLoading, Asset, Font, Icon } from "expo";
+import { createStackNavigator, createSwitchNavigator, createAppContainer } from 'react-navigation';
 
 export default class Profile extends React.Component { 
 

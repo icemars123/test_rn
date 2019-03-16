@@ -1,0 +1,131 @@
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=TIS-11">
+<META HTTP-EQUIV="Content-language" CONTENT="th">
+</head>
+<body style="text-align: center;">
+<script src="jquery.min.js"></script>
+<script type="text/javascript" src="epos-2.7.0.js"></script>
+<script type="text/javascript">
+
+  var ePosDev = new epson.ePOSDevice();
+
+
+	function connect(){
+    //var ip = '192.168.1.117'
+    alert('testing1...');
+    var ip = '192.168.192.168'
+    var port = '8008'
+
+    alert('test1');
+    if (ePosDev === null)
+    {
+      alert('no object')
+    }
+    ePosDev.connect(ip, port, callback_connect)
+  }
+  function callback_connect(resultConnect) {
+    var options = {crypto: false, buffer: false};
+    var deviceID = 'umd_pos1';
+    alert('test4');
+    if (resultConnect === 'OK' || (resultConnect == 'SSL_CONNECT_OK')) 
+    {
+      alert('test2');
+      ePosDev.createDevice(deviceID, ePosDev.DEVICE_TYPE_PRINTER, options, callback_createDevice);
+    } 
+    else 
+    {
+      alert(resultConnect);
+    }
+  }
+  var printer = null;
+  function callback_createDevice(deviceObj, errorCode) 
+  {
+    printer = deviceObj;
+    alert('connected')
+
+    printer.onreceive = function (response) {
+      console.log(response)
+      if (response.success) {
+        alert('Print Complete')
+        printer.addPulse(printer.DRAWER_1, printer.PULSE_100);
+        // printer.send();
+      } else {
+        alert('Error', response.code)
+      }
+    };
+
+    printer.oncoveropen = function (status) {
+      alert('cover open');
+    };
+    printer.startMonitor();
+  }
+
+  function setText(text, [reverse, underline, bold], size, align = 'ALIGN_LEFT') {
+    // var reverse = false;
+    // var underline = false;
+    // var bold = true;
+    var color = printer.COLOR_1;
+    var height = size;
+    var width = size;
+    printer.addTextStyle(reverse, underline, bold, color);
+    printer.addTextSize(height, width);
+    printer.addTextAlign(printer[align]); // Set text alignment to be at center
+    printer.addTextSmooth(true);
+    // printer.addTextAlign(printer.ALIGN_RIGHT); // Set text alignment to be at right
+    // printer.addTextAlign(printer.ALIGN_LEFT); // Set text alignment to be at left
+    printer.addText(text); // Add the text "Hello World"
+  }
+
+  function setBarcode() {
+    var data = '10000000103';
+    var barcodeType = printer.BARCODE_CODE39;
+    var width = 2;
+    var height = 32;
+    printer.addBarcode(data, barcodeType, printer.HR_BELOW, printer.FONT_A, width, height)
+  }
+
+  function setQRcode() {
+    printer.addSymbol('https://google.com', printer.SYMBOL_QRCODE_MODEL_2, printer.LEVEL_M, 8, 8, 0);
+  }
+
+  function setLogo() {
+    printer.addLogo(34, 34);
+  }
+
+	function createData(){
+    // setLogo();
+    setText('Play Store', [true, false, false], 3, 'ALIGN_CENTER');   //set the text, (1,2,3...) means font size
+    printer.addFeedLine(3);     // set line spaces 
+    setText('Notebook', [false, false, false], 1);    // default align_left 
+    printer.addTextPosition(400)  // set text position in one line.
+    setText('$200', [false, false, false], 1);
+    printer.addFeed();  //set a line space
+    setText('Thank you', [false, true, false], 2, 'ALIGN_CENTER');
+    printer.addFeedLine(3);
+    setBarcode();     
+    printer.addFeed();
+
+    printer.addFeedLine(2); // Add 5 lines feed to printer command buffer
+    printer.addCut(); // Add cut command
+    printer.send();
+	}
+
+
+//initialisation
+$(document).ready(function(){
+	$("#connectBtn").click(function(){
+		connect();
+	});
+	$("#printBtn").click(function(){
+		createData();
+	});
+});
+
+</script>
+Epson Printer SDK Test <br /><br />
+<button id="connectBtn">Connect</button>
+<button id="printBtn">Print</button>
+<br><br>
+</body>
+</html>

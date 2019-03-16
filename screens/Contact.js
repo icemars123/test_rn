@@ -10,31 +10,38 @@ import
     ScrollView,
     TextInput, 
 } from "react-native";
-import { createStackNavigator, createSwitchNavigator, } from 'react-navigation';
+import { createStackNavigator, createSwitchNavigator, createAppContainer } from 'react-navigation';
 import { AppLoading, Asset, Font, Icon } from "expo";  
 
 
 import Profile from "./Profile";
 import Login from "./Login";
+import Myhome from "./Home";
 
 
-const Application = createStackNavigator({
-    Home: { screen: Login},
-    Profile: { screen: Profile}
-    // }, {
-    //     initialRouteName: 'Login'
-    
-    
-});
 
 // const Application = createAppContainer(AuthNavigator);
 export default class Contact extends React.Component {
     render() {
         return (
-            <Application />
+            <Auth_Application />
         );
     }
 }   
+
+const Auth_Application = createStackNavigator({
+    Home: { screen: Login },
+    Profile: { screen: Profile }
+    // }, {
+    //     initialRouteName: 'Login'
+});
+
+// const Switch_Application = createSwitchNavigator({
+//     Auth: Auth_Application,
+//     // Home: Myhome,
+// });
+
+// const Application = createAppContainer(Switch_Application)
 
 // // const Application = createAppContainer(AuthNavigator);
 

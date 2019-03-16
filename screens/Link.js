@@ -31,7 +31,7 @@ export default class Link extends React.Component {
                     ref={this.createWebViewRef}
                     source={
                         Platform.OS === 'ios'
-                            ? require('./../assets/dist/test.html')
+                            ? require('./../assets/dist/printer.html')
                             : { uri: INDEX_FILE_ASSET_URI }
                     }
                     onLoadEnd={this.onWebViewLoaded}

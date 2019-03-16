@@ -13,7 +13,7 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             hash: true,
-            filename: './dist/test.html',
+            filename: './dist/printer.html',
             inject: 'body',
             inlineSource:  '.(js|css)$' //relative to root of the application
         }),

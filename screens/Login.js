@@ -13,7 +13,7 @@ import {
     TouchableOpacity,
     AsyncStorage,
 } from "react-native";
-import { createStackNavigator } from 'react-navigation';
+import { createStackNavigator, createSwitchNavigator, createAppContainer } from 'react-navigation';
 import { AppLoading, Asset, Font, Icon } from "expo";
 
 export default class Login extends React.Component {
@@ -73,7 +73,7 @@ export default class Login extends React.Component {
     login = () => {
         // alert(this.state.username);
 
-        fetch('http://192.168.91.36:3000/users', {
+        fetch('http://192.168.91.26:3000/users', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -88,6 +88,7 @@ export default class Login extends React.Component {
             .then((res) => {
                 if (res.success === true) {
                     alert(res.user);
+                    alert('hello')
                     AsyncStorage.setItem('user', res.user);
                     this.props.navigation.navigate('Profile');
                 }
